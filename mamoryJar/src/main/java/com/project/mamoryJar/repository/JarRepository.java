@@ -12,5 +12,5 @@ public interface JarRepository extends JpaRepository<Jar, Long>{
     List<Jar> findByUsuarioId(Long UsuarioId);
 
     // Buscar un jar especifico que pertenezca a un usuario
-    Optional<Jar> findByUsuaroId(Long jarId, Long usuarioId);
+    Optional<Jar> findByIdAndUsuarioId(Long jarId, Long usuarioId);
 }

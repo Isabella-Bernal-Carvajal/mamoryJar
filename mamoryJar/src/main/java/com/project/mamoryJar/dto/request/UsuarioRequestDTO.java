@@ -24,8 +24,4 @@ public class UsuarioRequestDTO {
     // valida que el valor exista
     @NotNull 
     private Rol rol;
-    
-    private String avatar;
-
-    private String descripcion;
 }

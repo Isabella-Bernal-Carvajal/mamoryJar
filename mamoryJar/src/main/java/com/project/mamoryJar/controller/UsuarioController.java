@@ -18,6 +18,7 @@ import com.project.mamoryJar.dto.response.UsuarioResponseDTO;
 import com.project.mamoryJar.dto.update.UsuarioUpdateDTO;
 import com.project.mamoryJar.service.UsuarioService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -28,7 +29,7 @@ public class UsuarioController {
     
     // Sign Out
     @PostMapping
-    public ResponseEntity<UsuarioResponseDTO> crearUsuario(@RequestBody UsuarioRequestDTO usuarioRequestDTO){
+    public ResponseEntity<UsuarioResponseDTO> crearUsuario(@Valid @RequestBody UsuarioRequestDTO usuarioRequestDTO){
         UsuarioResponseDTO response = usuarioService.crearUsuario(usuarioRequestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

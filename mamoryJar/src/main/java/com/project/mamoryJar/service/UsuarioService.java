@@ -27,7 +27,7 @@ public class UsuarioService {
     // para escrituras & cambios, NO para lecturas simples
     @Transactional 
     public UsuarioResponseDTO crearUsuario(UsuarioRequestDTO dto){
-        if (usuarioRepository.existByEmail(dto.getEmail())) {
+        if (usuarioRepository.existsByEmail(dto.getEmail())) {
             throw new IllegalStateException("El correo ya se encuentra registrado");
         }
 
@@ -37,9 +37,6 @@ public class UsuarioService {
         usuario.setNombre(dto.getNombre());
         usuario.setEmail(dto.getEmail());
         usuario.setContraseña(dto.getContraseña());
-
-        usuario.setAvatar(dto.getAvatar());
-        usuario.setDescripcion(dto.getDescripcion());
 
         usuarioRepository.save(usuario);
         return usuarioMapper.mapToResponse(usuario);
